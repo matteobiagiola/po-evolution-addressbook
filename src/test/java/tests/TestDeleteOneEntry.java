@@ -46,7 +46,6 @@ public class TestDeleteOneEntry extends BaseTest {
 		
 		
 		profilePage = addNewAddressCompleteForm.addNewAddress(firstName, lastName, address, mobile, email);
-//		UserInfoFromTable userData = profilePage.getUserInfoFromTable(0);
 		UserInfoFromTable userData = profilePage.getFirstUserInfoFromTable();
 
 		
@@ -57,9 +56,8 @@ public class TestDeleteOneEntry extends BaseTest {
 		
 		
 		
-		addNewAddressCompleteForm = profilePage.editAddress(0);
+		addNewAddressCompleteForm = profilePage.editAddress();
 		profilePage = addNewAddressCompleteForm.delete();
-//		assertNull(profilePage.getUserInfoFromTable(0));
 		assertNull(profilePage.getFirstUserInfoFromTable());
 
 	}

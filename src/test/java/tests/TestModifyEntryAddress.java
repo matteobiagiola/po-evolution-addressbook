@@ -45,7 +45,6 @@ public class TestModifyEntryAddress extends BaseTest {
 		
 		
 		profilePage = addNewAddressCompleteForm.addNewAddress(firstName, lastName, address, mobile, email);
-//		UserInfoFromTable userData = profilePage.getUserInfoFromTable(0);
 		UserInfoFromTable userData = profilePage.getFirstUserInfoFromTable();
 
 		
@@ -60,9 +59,8 @@ public class TestModifyEntryAddress extends BaseTest {
 		
 		
 		
-		addNewAddressCompleteForm = profilePage.editAddress(0);
+		addNewAddressCompleteForm = profilePage.editAddress();
 		profilePage = addNewAddressCompleteForm.addNewAddress(firstName, lastName, address, mobile, email);
-//		userData = profilePage.getUserInfoFromTable(0);
 		userData = profilePage.getFirstUserInfoFromTable();
 
 		

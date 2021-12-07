@@ -53,7 +53,6 @@ public class TestOrderByName extends BaseTest {
 		
 		
 		profilePage = addNewAddressCompleteForm.addNewAddress(firstName, lastName, address, mobile, email);
-//		UserInfoFromTable userData = profilePage.getUserInfoFromTable(0);
 		UserInfoFromTable userData = profilePage.getFirstUserInfoFromTable();
 
 		
@@ -72,7 +71,6 @@ public class TestOrderByName extends BaseTest {
 		
 		
 		profilePage = addNewAddressCompleteForm.addNewAddress(firstName2, lastName2, address2, mobile2, email2);
-//		userData = profilePage.getUserInfoFromTable(1);
 		userData = profilePage.getSecondUserInfoFromTable();
 
 		
@@ -84,12 +82,10 @@ public class TestOrderByName extends BaseTest {
 		
 		
 		profilePage.toggleOrderByName();
-//		userData = profilePage.getUserInfoFromTable(0);
 		userData = profilePage.getFirstUserInfoFromTable();
 		assertEquals(lastName + " " + firstName, userData.getFirstAndSecondName());
 		
 		profilePage.toggleOrderByName();
-//		userData = profilePage.getUserInfoFromTable(0);
 		userData = profilePage.getFirstUserInfoFromTable();
 		assertEquals(lastName2 + " " + firstName2, userData.getFirstAndSecondName());
 		

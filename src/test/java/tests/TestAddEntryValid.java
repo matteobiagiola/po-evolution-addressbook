@@ -46,7 +46,6 @@ public class TestAddEntryValid extends BaseTest {
 		
 		
 		profilePage = addNewAddressCompleteForm.addNewAddress(firstName, lastName, address, mobile, email);
-//		UserInfoFromTable userData = profilePage.getUserInfoFromTable(0);
 		UserInfoFromTable userData = profilePage.getFirstUserInfoFromTable();
 
 		

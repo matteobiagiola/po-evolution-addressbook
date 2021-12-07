@@ -57,12 +57,6 @@ public class ProfilePage {
 
 	@FindBy(xpath = "/html/body/div[1]/div[4]/form[2]/table/tbody/tr[3]/td[6]")
 	private WebElement secondEntryPhone;
-
-
-
-	
-	private String tableHeadeXPath = "/html/body/div[1]/div[4]/form[2]/table/tbody/";
-	
 	
 	
 	public ProfilePage (WebDriver driver) {
@@ -149,51 +143,13 @@ public class ProfilePage {
 
 		return userInfoToReturn;
 	}
-
-
-	/**
-	 * get the data of the user in the given row of the table
-	 * @param index the index of the row of the table (from 0)
-	 * @return UserInfoFromTable object with the data, null if the row is not present
-	 */
-	public UserInfoFromTable getUserInfoFromTable(int index) {
-		
-		UserInfoFromTable userInfoToReturn = null;
-		
-		String xPathOfRow = tableHeadeXPath + "tr[" + (index+2) + "]";
-		
-		try {
-			WebElement row = driver.findElement(By.xpath(xPathOfRow));
-			
-			if (row != null && !row.getAttribute("style").equals("display: none;")) {
-				
-				userInfoToReturn = new UserInfoFromTable
-						(
-								row.findElement(By.xpath("./td[3]")).getText(),
-								row.findElement(By.xpath("./td[4]")).getText(),
-								row.findElement(By.xpath("./td[5]")).getText(),
-								row.findElement(By.xpath("./td[6]")).getText()
-						);
-			}
-		}
-		catch (NoSuchElementException e) {
-			
-		}
-		
-		return userInfoToReturn;
-	} 
 	
 	
 	/**
 	 * go to edit the selected address
-	 * @param index the index of the address in the table
 	 * @return the page with the full form
 	 */
-	public AddNewAddressBookFullForm editAddress(int index) {
-		
-//		String xPathOfRow = tableHeadeXPath + "tr[" + (index+2) + "]";
-//		WebElement row = driver.findElement(By.xpath(xPathOfRow));
-//		row.findElement(By.xpath("./td[8]/a[1]/img[1]")).click();
+	public AddNewAddressBookFullForm editAddress() {
 
 		firstEntryEditAddressIcon.click();
 		

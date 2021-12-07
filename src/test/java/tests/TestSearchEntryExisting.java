@@ -47,7 +47,6 @@ public class TestSearchEntryExisting extends BaseTest {
 		
 		
 		profilePage = addNewAddressCompleteForm.addNewAddress(firstName, lastName, address, mobile, email);
-//		UserInfoFromTable userData = profilePage.getUserInfoFromTable(0);
 		UserInfoFromTable userData = profilePage.getFirstUserInfoFromTable();
 
 		
@@ -58,9 +57,7 @@ public class TestSearchEntryExisting extends BaseTest {
 		
 		profilePage.searchInBar(firstName + " " + lastName);
 		
-//		assertNotNull(profilePage.getUserInfoFromTable(0));
 		assertNotNull(profilePage.getFirstUserInfoFromTable());
-//		assertNull(profilePage.getUserInfoFromTable(1));
 		assertNull(profilePage.getSecondUserInfoFromTable());
 
 	}

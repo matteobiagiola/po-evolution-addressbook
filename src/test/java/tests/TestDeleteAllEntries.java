@@ -58,16 +58,10 @@ public class TestDeleteAllEntries extends BaseTest {
 		addNewAddressFirstForm = new NavBar(driver).goToAddNewAddressBook();
 		addNewAddressCompleteForm = addNewAddressFirstForm.goToFullForm();
 		profilePage = addNewAddressCompleteForm.addNewAddress(firstName, lastName, address, mobile, email);
-		
-		
-		int i = 0;
-		
-//		while (profilePage.getUserInfoFromTable(0) != null) {
-		while (profilePage.getFirstUserInfoFromTable() != null) {
 
-			addNewAddressCompleteForm = profilePage.editAddress(0);
+		while (profilePage.getFirstUserInfoFromTable() != null) {
+			addNewAddressCompleteForm = profilePage.editAddress();
 			profilePage = addNewAddressCompleteForm.delete();
-			i++;
 		}
 		
 	}
