@@ -1,0 +1,16 @@
+version: '3'
+services:
+  addressbook:
+    stdin_open: true
+    tty: true
+    working_dir: /home/addressbook
+    image: dockercontainervm/addressbook:9.0.0.1
+    container_name: addressbook
+    expose:
+    - 80
+    ports:
+    - "3000:80"
+    environment:
+    - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    entrypoint: ./run-services-docker.sh
+

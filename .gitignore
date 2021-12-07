@@ -1,0 +1,12 @@
+/.gtm/
+.classpath
+.project
+gradlew
+gradlew.bat
+target
+gradle
+.idea
+.settings
+.gradle
+build
+.DS_Store
