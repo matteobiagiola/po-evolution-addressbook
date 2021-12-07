@@ -13,28 +13,28 @@ public class ProfilePage {
 
 	private WebDriver driver;
 	
-	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/form[1]/b[1]")
+	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[5]/form[1]/b[1]")
 	private WebElement loggedUserElement;
 	
-	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/form[1]/a[1]")
+	@FindBy(xpath = "/html[1]/body[1]/div[1]/form[1]/a[1]")
 	private WebElement logoutLink;
 	
-	@FindBy(xpath = "//input[@value='Delete']")
+	@FindBy(xpath = "//input[@value='delete']")
 	private WebElement deleteButton;
 	
-	@FindBy(xpath = "//input[@id='MassCB']")
+	@FindBy(xpath = "//input[@id='massCB']")
 	private WebElement selectAllButton;
 	
-	@FindBy(xpath = "//input[@title='Search for any text']")
+	@FindBy(xpath = "//input[@title='search for any text']")
 	private WebElement searchBar;
 	
-	@FindBy(xpath = "//a[@title='Sort on “Name”']")
+	@FindBy(xpath = "//a[@title='sort on “name”']")
 	private WebElement orderByName;
 
-	@FindBy(xpath = "/html/body/div[1]/div[4]/form[2]/table/tbody/tr[2]/td[8]/a[1]/img[1]")
+	@FindBy(xpath = "/html/body/div[1]/div[4]/form[2]/table/tbody/td[8]/a[1]/img[1]")
 	private WebElement firstEntryEditAddressIcon;
 
-	@FindBy(xpath = "/html/body/div[1]/div[4]/form[2]/table/tbody/tr[2]/td[3]")
+	@FindBy(xpath = "/html/body/div[1]/div[4]/form[2]/table/tbody/tr[2]/td[1]")
 	private WebElement firstEntryName;
 
 	@FindBy(xpath = "/html/body/div[1]/div[4]/form[2]/table/tbody/tr[2]/td[4]")
@@ -46,16 +46,16 @@ public class ProfilePage {
 	@FindBy(xpath = "/html/body/div[1]/div[4]/form[2]/table/tbody/tr[2]/td[6]")
 	private WebElement firstEntryPhone;
 
-	@FindBy(xpath = "/html/body/div[1]/div[4]/form[2]/table/tbody/tr[3]/td[3]")
+	@FindBy(xpath = "/html/body/div[1]/form[2]/table/tbody/tr[3]/td[3]")
 	private WebElement secondEntryName;
 
-	@FindBy(xpath = "/html/body/div[1]/div[4]/form[2]/table/tbody/tr[3]/td[4]")
+	@FindBy(xpath = "/html/body/div[4]/form[2]/table/tbody/tr[3]/td[4]")
 	private WebElement secondEntryAddress;
 
-	@FindBy(xpath = "/html/body/div[1]/div[4]/form[2]/table/tbody/tr[3]/td[5]")
+	@FindBy(xpath = "/html/body/div[1]/div[4]/table/tbody/tr[3]/td[5]")
 	private WebElement secondEntryEmail;
 
-	@FindBy(xpath = "/html/body/div[1]/div[4]/form[2]/table/tbody/tr[3]/td[6]")
+	@FindBy(xpath = "/html/body/div[1]/div[4]/form[2]/table/tbody/tr[3]/td[9]")
 	private WebElement secondEntryPhone;
 	
 	

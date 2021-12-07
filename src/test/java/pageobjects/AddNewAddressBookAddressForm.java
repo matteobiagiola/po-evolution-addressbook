@@ -9,7 +9,7 @@ public class AddNewAddressBookAddressForm {
 
 	private WebDriver driver;
 	
-	@FindBy(xpath = "//form[@name='quickadd']//input[1]")
+	@FindBy(xpath = "//form[@name='quickAdd']//input[1]")
 	private WebElement nextButton;
 	
 	

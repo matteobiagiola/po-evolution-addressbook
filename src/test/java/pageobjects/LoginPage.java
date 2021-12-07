@@ -11,13 +11,10 @@ public class LoginPage {
 
 	private WebDriver driver;
 	
-	@FindBy(xpath = "//input[@name='user']")
+	@FindBy(xpath = "//input[@name='username']")
 	private WebElement usernameFieldLogin;
 	
-	@FindBy(xpath = "//input[@name='pass']")
-	private WebElement passwordFieldLogin;
-	
-	@FindBy(xpath = "//input[@value='Login']")
+	@FindBy(xpath = "//input[@value='login']")
 	private WebElement submitButtonLogin;
 	
 	
@@ -37,9 +34,6 @@ public class LoginPage {
 	public void login(String username, String password) {
 		
 		usernameFieldLogin.sendKeys(username);
-		
-		passwordFieldLogin.sendKeys(password);
-		
 		submitButtonLogin.click();
 	}
 	
@@ -54,8 +48,6 @@ public class LoginPage {
 		
 		try {
 			usernameFieldLogin.isDisplayed();
-			passwordFieldLogin.isDisplayed();
-			
 		}
 		catch (NoSuchElementException e) {
 			isLoginFormPresent = false;

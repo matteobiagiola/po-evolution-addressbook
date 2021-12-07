@@ -10,11 +10,11 @@ public class NavBar {
 	
 	private WebDriver driver;
 	
-	@FindBy(xpath = "//a[contains(text(),'add new')]")
+	@FindBy(xpath = "//a[contains(text(),'Add New')]")
 	private WebElement addNewLink;
 	
 	
-	@FindBy(xpath = "//a[contains(text(),'home')]")
+	@FindBy(xpath = "//a[contains(text(),'Home')]")
 	private WebElement homeLink;
 
 	
