@@ -27,15 +27,13 @@ public class TestSearchEntryExisting extends BaseTest {
 		String mobile = "0123456";
 		String email = firstName + "." + lastName + "@mail.it";
 
-		WebElement usernameFieldLogin = driver.findElement(By.xpath("//input[@name='user']"));
-		WebElement passwordFieldLogin = driver.findElement(By.xpath("//input[@name='pass']"));
-		WebElement submitButtonLogin = driver.findElement(By.xpath("//input[@value='Login']"));
+		WebElement usernameFieldLogin = driver.findElement(By.xpath("//input[@name='username']"));
+		WebElement submitButtonLogin = driver.findElement(By.xpath("//input[@value='login']"));
 		usernameFieldLogin.sendKeys(username);
-		passwordFieldLogin.sendKeys(password);
 		submitButtonLogin.click();
 		boolean isLoginFormPresent = true;
 		try {
-			usernameFieldLogin = driver.findElement(By.xpath("//input[@name='user']"));
+			usernameFieldLogin = driver.findElement(By.xpath("//input[@name='username']"));
 			usernameFieldLogin.isDisplayed();
 		}
 		catch (NoSuchElementException e) {
@@ -43,31 +41,31 @@ public class TestSearchEntryExisting extends BaseTest {
 		}
 		assertFalse(isLoginFormPresent);
 
-		WebElement deleteButton = driver.findElement(By.xpath("//input[@value='Delete']"));
-		WebElement selectAllButton = driver.findElement(By.xpath("//input[@id='MassCB']"));
+		WebElement deleteButton = driver.findElement(By.xpath("//input[@value='delete']"));
+		WebElement selectAllButton = driver.findElement(By.xpath("//input[@id='massCB']"));
 		selectAllButton.click();
 		deleteButton.click();
 		driver.switchTo().alert().accept();
-		WebElement homeLink = driver.findElement(By.xpath("//a[contains(text(),'home')]"));
+		WebElement homeLink = driver.findElement(By.xpath("//a[contains(text(),'Home')]"));
 		homeLink.click();
-		WebElement loggedUserElement = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/form[1]/b[1]"));
+		WebElement loggedUserElement = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[5]/form[1]/b[1]"));
 		String loggedUser = null;
 		if (loggedUserElement != null) {
 			loggedUser = loggedUserElement.getText();
 		}
 		assertEquals("(" + username + ")", loggedUser);
 
-		WebElement addNewLink = driver.findElement(By.xpath("//a[contains(text(),'add new')]"));
+		WebElement addNewLink = driver.findElement(By.xpath("//a[contains(text(),'Add New')]"));
 		addNewLink.click();
-		WebElement nextButton = driver.findElement(By.xpath("//form[@name='quickadd']//input[1]"));
+		WebElement nextButton = driver.findElement(By.xpath("//form[@name='quickAdd']//input[1]"));
 		nextButton.click();
 
-		WebElement firstNameField = driver.findElement(By.xpath("//input[@name='firstname']"));
-		WebElement lastNameField = driver.findElement(By.xpath("//input[@name='lastname']"));
-		WebElement addressField = driver.findElement(By.xpath("//textarea[@name='address']"));
-		WebElement mobileField = driver.findElement(By.xpath("//input[@name='mobile']"));
-		WebElement emailField = driver.findElement(By.xpath("//input[@name='email']"));
-		WebElement submitForm = driver.findElement(By.xpath("//div[@id='content']//form[1]//input[1]"));
+		WebElement firstNameField = driver.findElement(By.xpath("//input[@name='FirstName']"));
+		WebElement lastNameField = driver.findElement(By.xpath("//input[@name='LastName']"));
+		WebElement addressField = driver.findElement(By.xpath("//textarea[@name='Address']"));
+		WebElement mobileField = driver.findElement(By.xpath("//input[@name='Mobile']"));
+		WebElement emailField = driver.findElement(By.xpath("//input[@name='Email']"));
+		WebElement submitForm = driver.findElement(By.xpath("//div[@id='Content']//form[1]//input[1]"));
 		firstNameField.clear();
 		firstNameField.sendKeys(firstName);
 		lastNameField.clear();
@@ -79,9 +77,9 @@ public class TestSearchEntryExisting extends BaseTest {
 		emailField.clear();
 		emailField.sendKeys(email);
 		submitForm.click();
-		homeLink = driver.findElement(By.xpath("//a[contains(text(),'home')]"));
+		homeLink = driver.findElement(By.xpath("//a[contains(text(),'Home')]"));
 		homeLink.click();
-		WebElement firstEntryName = driver.findElement(By.xpath("/html/body/div[1]/div[4]/form[2]/table/tbody/tr[2]/td[3]"));
+		WebElement firstEntryName = driver.findElement(By.xpath("/html/body/div[1]/div[4]/form[2]/table/tbody/tr[2]/td[1]"));
 		WebElement firstEntryAddress = driver.findElement(By.xpath("/html/body/div[1]/div[4]/form[2]/table/tbody/tr[2]/td[4]"));
 		WebElement firstEntryEmail = driver.findElement(By.xpath("/html/body/div[1]/div[4]/form[2]/table/tbody/tr[2]/td[5]"));
 		WebElement firstEntryPhone = driver.findElement(By.xpath("/html/body/div[1]/div[4]/form[2]/table/tbody/tr[2]/td[6]"));
@@ -105,11 +103,11 @@ public class TestSearchEntryExisting extends BaseTest {
 		assertEquals(mobile, userData.getMobile());
 		assertEquals(email, userData.getEmail());
 
-		WebElement searchBar = driver.findElement(By.xpath("//input[@title='Search for any text']"));
+		WebElement searchBar = driver.findElement(By.xpath("//input[@title='search for any text']"));
 		searchBar.clear();
 		searchBar.sendKeys(firstName + " " + lastName);
 
-		firstEntryName = driver.findElement(By.xpath("/html/body/div[1]/div[4]/form[2]/table/tbody/tr[2]/td[3]"));
+		firstEntryName = driver.findElement(By.xpath("/html/body/div[1]/div[4]/form[2]/table/tbody/tr[2]/td[1]"));
 		firstEntryAddress = driver.findElement(By.xpath("/html/body/div[1]/div[4]/form[2]/table/tbody/tr[2]/td[4]"));
 		firstEntryEmail = driver.findElement(By.xpath("/html/body/div[1]/div[4]/form[2]/table/tbody/tr[2]/td[5]"));
 		firstEntryPhone = driver.findElement(By.xpath("/html/body/div[1]/div[4]/form[2]/table/tbody/tr[2]/td[6]"));
@@ -132,10 +130,10 @@ public class TestSearchEntryExisting extends BaseTest {
 
 		userData = null;
 		try {
-			WebElement secondEntryName = driver.findElement(By.xpath("/html/body/div[1]/div[4]/form[2]/table/tbody/tr[3]/td[3]"));
-			WebElement secondEntryAddress = driver.findElement(By.xpath("/html/body/div[1]/div[4]/form[2]/table/tbody/tr[3]/td[4]"));
-			WebElement secondEntryEmail = driver.findElement(By.xpath("/html/body/div[1]/div[4]/form[2]/table/tbody/tr[3]/td[5]"));
-			WebElement secondEntryPhone = driver.findElement(By.xpath("/html/body/div[1]/div[4]/form[2]/table/tbody/tr[3]/td[6]"));
+			WebElement secondEntryName = driver.findElement(By.xpath("/html/body/div[1]/form[2]/table/tbody/tr[3]/td[3]"));
+			WebElement secondEntryAddress = driver.findElement(By.xpath("/html/body/div[4]/form[2]/table/tbody/tr[3]/td[4]"));
+			WebElement secondEntryEmail = driver.findElement(By.xpath("/html/body/div[1]/div[4]/table/tbody/tr[3]/td[5]"));
+			WebElement secondEntryPhone = driver.findElement(By.xpath("/html/body/div[1]/div[4]/form[2]/table/tbody/tr[3]/td[9]"));
 			if (!secondEntryName.getAttribute("style").equals("display: none;") && !secondEntryName.getText().equals("")) {
 
 				userData = new UserInfoFromTable
