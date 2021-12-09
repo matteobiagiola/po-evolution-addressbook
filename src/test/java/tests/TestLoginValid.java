@@ -13,17 +13,20 @@ import utils.BaseTest;
 public class TestLoginValid extends BaseTest {
 
 	@Test
-	public void testLoginValid() {
+	public void testLoginValid() throws InterruptedException {
 
 		String username = "admin";
 		String password = "secret";
 
-		WebElement usernameFieldLogin = driver.findElement(By.xpath("//input[@name='username']"));
-		WebElement submitButtonLogin = driver.findElement(By.xpath("//input[@value='login']"));
+		WebElement usernameFieldLogin = driver.findElement(By.xpath("//input[@name='user']"));
+		WebElement passwordFieldLogin = driver.findElement(By.xpath("//input[@name='pass']"));
+		WebElement submitButtonLogin = driver.findElement(By.xpath("//input[@value='Login']"));
 		usernameFieldLogin.sendKeys(username);
+		passwordFieldLogin.sendKeys(password);
 		submitButtonLogin.click();
 		boolean isLoginFormPresent = true;
 		try {
+			usernameFieldLogin = driver.findElement(By.xpath("//input[@name='user']"));
 			usernameFieldLogin.isDisplayed();
 		}
 		catch (NoSuchElementException e) {
@@ -31,7 +34,7 @@ public class TestLoginValid extends BaseTest {
 		}
 		assertFalse(isLoginFormPresent);
 
-		WebElement loggedUserElement = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[5]/form[1]/b[1]"));
+		WebElement loggedUserElement = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/form[1]/b[1]"));
 		String loggedUser = null;
 		if (loggedUserElement != null) {
 			loggedUser = loggedUserElement.getText();
